@@ -1,0 +1,206 @@
+{
+  "patients": [
+    {
+      "id": "e743",
+      "name": "عبود",
+      "email": "eng.abood.mushtaha@gmail.com",
+      "password": "123456789",
+      "role": "patient",
+      "bloodType": "B+",
+      "allergies": [
+        "البنسلين والأدوية",
+        "الغبار واللقاح",
+        "المكسرات",
+        "البيض"
+      ],
+      "chronicDiseases": [
+        "السكري"
+      ],
+      "previousSurgeries": [
+        "استئصال الزائدة"
+      ],
+      "phone": "845468468",
+      "address": "عشرين شارع 42 شقة 20\n",
+      "age": "21",
+      "gender": "ذكر"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "6ffd",
+      "name": "علاء الهبيل",
+      "email": "ala@gmail.com",
+      "password": "12345678",
+      "role": "Doctor",
+      "specialty": "تشريح وعظام والنخاع",
+      "workingDays": [
+        "الأحد",
+        "الخميس",
+        "الإثنين",
+        "الثلاثاء",
+        "الأربعاء",
+        "الجمعة"
+      ],
+      "workingHours": {
+        "start": "06:00",
+        "end": "18:00"
+      },
+      "slotDuration": 15,
+      "blockedDates": [
+        {
+          "start": "2026-02-02",
+          "end": "2026-02-24",
+          "reason": "إجازة مطولة"
+        },
+        {
+          "start": "2026-02-27",
+          "end": "2026-03-13",
+          "reason": "إجازة مطولة"
+        },
+        {
+          "date": "2026-02-04",
+          "reason": "إجازة ليوم"
+        }
+      ],
+      "startTime": "06:00",
+      "endTime": "18:00",
+      "phone": "0105060352135",
+      "experience": 20,
+      "education": "خبير في لعلوم البشرية والتشريح - علوم طبية\nطيب في مؤسسة الامم المتحدة ",
+      "bio": "مختص في جراحة العظام والعمود الفقري وكشف على الجمجمة ",
+      "consultationFee": "500"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "b7bf",
+      "doctorId": null,
+      "date": "2026-02-06",
+      "time": "11:30",
+      "notes": "Facilis sed velit ap",
+      "patientId": "e743",
+      "status": "completed",
+      "consultationFee": "250",
+      "rating": 5
+    },
+    {
+      "id": "3652",
+      "doctorId": "6ffd",
+      "date": "2026-02-04",
+      "time": "16:30",
+      "notes": "",
+      "patientId": "e743",
+      "status": "pending",
+      "consultationFee": "500"
+    }
+  ],
+  "payments": [
+    {
+      "id": "p1",
+      "patientId": "e743",
+      "amount": 500,
+      "status": "paid",
+      "date": "2026-02-01T20:00:00"
+    }
+  ],
+  "doctorSalaries": [
+    {
+      "id": "s2",
+      "doctorId": "6ffd",
+      "baseSalary": 5000,
+      "bonuses": 1000,
+      "deductions": 500,
+      "month": "فبراير 2026"
+    },
+    {
+      "id": "temp-d1",
+      "baseSalary": 8000,
+      "bonuses": 100,
+      "deductions": 200,
+      "doctorId": null,
+      "month": "فبراير 2026"
+    },
+    {
+      "id": "temp-7a8f",
+      "baseSalary": 6000,
+      "bonuses": 400,
+      "deductions": 100,
+      "doctorId": null,
+      "month": "فبراير 2026"
+    },
+    {
+      "id": "temp-046f",
+      "baseSalary": 1000,
+      "bonuses": 300,
+      "deductions": 200,
+      "doctorId": null,
+      "month": "فبراير 2026"
+    }
+  ],
+  "medical-records": [
+    {
+      "id": "d607",
+      "patientId": "e743",
+      "type": "imaging",
+      "title": "تصوير صدر",
+      "content": "كشفت ان هناك كسر 3 اضلاع يمكن ان يلتئموا بسهولة. الحمد لله والامور طيبه ممتاز",
+      "medications": [],
+      "patientName": "عبود",
+      "doctorId": "6ffd",
+      "doctorName": "علاء الهبيل",
+      "date": "2026-02-02T15:29:28.195Z"
+    },
+    {
+      "id": "1f38",
+      "patientId": "e743",
+      "type": "prescription",
+      "title": "تجربة ",
+      "content": "ممتاز يعمل بشكل رائع ",
+      "medications": [
+        {
+          "name": "بنادول ",
+          "dosage": "2"
+        },
+        {
+          "name": "معجون طبي ",
+          "dosage": "مره كل ساعه "
+        }
+      ],
+      "patientName": "عبود",
+      "doctorId": "6ffd",
+      "doctorName": "علاء الهبيل",
+      "date": "2026-02-03T10:11:48.395Z"
+    },
+    {
+      "id": "2050",
+      "patientId": "e743",
+      "type": "diagnosis",
+      "title": "Saepe cum vel necess",
+      "content": "Debitis qui dolore t",
+      "medications": [],
+      "patientName": "عبود",
+      "doctorId": null,
+      "doctorName": "جلال ",
+      "date": "2026-02-04T10:13:26.178Z"
+    }
+  ],
+  "admins": [
+    {
+      "id": "a1",
+      "name": "مدير النظام",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ],
+  "departments": [
+    {
+      "id": "f5cb",
+      "name": "جراحة عيون",
+      "description": "عيون",
+      "doctorIds": [
+        "6ffd"
+      ]
+    }
+  ]
+}
