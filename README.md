@@ -3,9 +3,15 @@
 A modern **Clinic Management System** built with **React + Vite** using a **mock backend** powered by **json-server**.  
 The system supports **multiple user roles** (Patient, Doctor, Admin) with **role-based access control**, a **shared login interface**, and a **fully Arabic (RTL) user interface**.
 
-This project is designed with **clean architecture**, **scalable structure**, and **readable code**, suitable for a **mid-level React developer** and easily extendable to a real backend in the future.
+This project is designed with **clean architecture**, **scalable structure**, and **readable code**, easily extendable to a real backend in the future.
 
----
+## Notes :
+
+This project uses mock data only
+
+Designed for learning, prototyping, and portfolio use
+
+Easily extendable to a real backend (Node.js, Laravel, etc.)
 
 ## Key Features
 
@@ -24,35 +30,35 @@ This project is designed with **clean architecture**, **scalable structure**, an
 - Register, login, and logout
 - View and edit personal profile
 - Manage medical history:
-    - Blood type
-    - Allergies
-    - Chronic diseases
-    - Previous surgeries
+  - Blood type
+  - Allergies
+  - Chronic diseases
+  - Previous surgeries
 - Book appointments with doctors
 - Select available dates and time slots
 - View appointments:
-    - Upcoming
-    - Past
-    - Cancelled
+  - Upcoming
+  - Past
+  - Cancelled
 - Cancel or reschedule appointments
 - View appointment details:
-    - Doctor name
-    - Specialty
-    - Date & time
-    - Status
-    - Consultation fee
+  - Doctor name
+  - Specialty
+  - Date & time
+  - Status
+  - Consultation fee
 - View prescriptions and medical reports
 - Download reports and prescriptions as PDF
 - Receive notifications:
-    - Appointment confirmation
-    - Reminders
-    - Cancellations
+  - Appointment confirmation
+  - Reminders
+  - Cancellations
 - Rate and review doctors
 - View payment history and payment status
 - Security options:
-    - Change password
-    - Logout from all devices
-    - View login history
+  - Change password
+  - Logout from all devices
+  - View login history
 
 ---
 
@@ -60,27 +66,27 @@ This project is designed with **clean architecture**, **scalable structure**, an
 
 - Register, login, and logout
 - View and edit profile:
-    - Specialty
-    - Experience
-    - Working days and hours
+  - Specialty
+  - Experience
+  - Working days and hours
 - Manage schedule:
-    - Available time slots
-    - Block unavailable dates
+  - Available time slots
+  - Block unavailable dates
 - View appointments:
-    - Today’s appointments
-    - Upcoming appointments
-    - Cancelled appointments
+  - Today’s appointments
+  - Upcoming appointments
+  - Cancelled appointments
 - Access patient medical profiles
 - Add medical data:
-    - Diagnosis
-    - Prescriptions
-    - Medical notes
-    - Lab tests and imaging requests
+  - Diagnosis
+  - Prescriptions
+  - Medical notes
+  - Lab tests and imaging requests
 - Receive notifications for new and cancelled appointments
 - View performance reports:
-    - Number of patients
-    - Monthly appointments
-    - Statistics and charts
+  - Number of patients
+  - Monthly appointments
+  - Statistics and charts
 - View salary, bonuses, and deductions (read-only, managed by Admin)
 
 ---
@@ -89,21 +95,21 @@ This project is designed with **clean architecture**, **scalable structure**, an
 
 - Login and logout
 - Manage doctors:
-    - Add, edit, remove doctors
-    - Assign specialties
-    - Activate / deactivate accounts
+  - Add, edit, remove doctors
+  - Assign specialties
+  - Activate / deactivate accounts
 - View and manage patients
 - Manage clinic data:
-    - Departments
-    - Services
-    - Consultation fees
+  - Departments
+  - Services
+  - Consultation fees
 - View and manage all appointments
 - Manage doctors’ salaries, bonuses, and incentives
 - Manage doctor leaves and vacations
 - View analytics and reports:
-    - Clinic revenue
-    - Appointment statistics
-    - Doctor performance metrics
+  - Clinic revenue
+  - Appointment statistics
+  - Doctor performance metrics
 
 ---
 
