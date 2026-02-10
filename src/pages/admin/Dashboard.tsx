@@ -91,21 +91,23 @@ export default function AdminDashboard() {
     <DashboardLayout>
       <div className="max-w-[1600px] mx-auto space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
         {/* Header Section */}
-        <header className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-100 pb-8">
+        <header className="flex flex-row items-center justify-between gap-2 border-b border-slate-100 pb-6 mt-2">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="h-[1px] w-8 bg-slate-900"></span>
-              <span className="text-[15px] font-black uppercase tracking-[0.3em] text-slate-400">
+            <div className="hidden sm:flex items-center gap-2 mb-1">
+              <span className="h-[1px] w-6 bg-slate-900"></span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
                 إدارة المنشأة الصحية
               </span>
             </div>
-            <h1 className="text-4xl font-black text-slate-900 tracking-tight">
+            <h1 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight">
               الرئيسية
             </h1>
           </div>
-          <SystemStatus />
-        </header>
 
+          <div className="transform scale-90 origin-left md:scale-100">
+            <SystemStatus />
+          </div>
+        </header>
         {/* Stats Cards Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <StatCard

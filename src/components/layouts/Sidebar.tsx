@@ -74,6 +74,11 @@ export function Sidebar() {
     ],
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   if (loading) return null;
 
   const currentMenuItems = user
@@ -84,15 +89,24 @@ export function Sidebar() {
 
   return (
     <>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-50 cursor-pointer  lg:hidden bg-blue-600 text-white p-2 rounded-lg shadow-lg"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-100 flex items-center justify-between px-4 z-50 shadow-sm">
+        <div className="flex items-center gap-2 flex-row-reverse">
+          <div className="bg-blue-500 rounded-full p-1.5">
+            <Heart className="w-4 h-4 text-white" />
+          </div>
+          <span className="font-bold text-gray-900 text-sm">عيادتي الذكية</span>
+        </div>
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-gray-600 p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 z-40 lg:translate-x-0 flex flex-col ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 z-[60] lg:translate-x-0 flex flex-col ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -141,8 +155,8 @@ export function Sidebar() {
 
         <div className="p-4 border-t border-gray-100">
           <button
-            onClick={logout}
-            className="w-full cursor-pointer  flex items-center justify-between px-4 py-3 text-red-600 rounded-xl hover:bg-red-50 transition-colors flex-row-reverse font-bold text-sm"
+            onClick={handleLogout}
+            className="w-full cursor-pointer flex items-center justify-between px-4 py-3 text-red-600 rounded-xl hover:bg-red-50 transition-colors flex-row-reverse font-bold text-sm"
           >
             <div className="flex items-center gap-3 flex-row-reverse">
               <LogOut size={18} />
@@ -155,7 +169,7 @@ export function Sidebar() {
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-30 lg:hidden"
+          className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 lg:hidden"
         />
       )}
     </>

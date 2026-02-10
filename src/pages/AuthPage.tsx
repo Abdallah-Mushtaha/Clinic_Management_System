@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from "react";
+import { FormSkeleton } from "./FormSkeleton";
 
 const LoginForm = lazy(() => import("../pages/Login"));
 const RegisterForm = lazy(() => import("../components/RegisterForm"));
@@ -95,11 +96,7 @@ export default function AuthPage() {
                 <div className="w-12 h-1 bg-cyan-500 mx-auto mt-3 rounded-full" />
               </div>
 
-              <Suspense
-                fallback={
-                  <div className="h-40 animate-pulse bg-slate-100 rounded-xl" />
-                }
-              >
+              <Suspense fallback={<FormSkeleton />}>
                 {isLogin ? (
                   <LoginForm onSwitch={() => setIsLogin(false)} />
                 ) : (

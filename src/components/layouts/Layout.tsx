@@ -14,14 +14,10 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
     );
   }
 
-  // if (!user) {
-  //   return <Navigate to="/patient-dashboard" replace />;
-  // }
-
   return (
     <div className="min-h-screen bg-gray-50" dir="rtl">
       <Sidebar />
-      <div className="lg:mr-64 transition-all duration-300">
+      <div className="lg:mr-64 transition-all duration-300 pt-16 lg:pt-0">
         <main className="p-4 lg:p-8">{children}</main>
       </div>
     </div>

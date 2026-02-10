@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { SignJWT } from "jose";
 
 const loginSchema = z.object({
   email: z.string().email("البريد الإلكتروني غير صحيح"),
@@ -29,14 +30,31 @@ export default function LoginForm({ onSwitch }: { onSwitch: () => void }) {
   const handleLogin = async (data: LoginInput) => {
     setLoading(true);
     try {
-      const user = await login(data.email, data.password);
+      let passwordToSubmit: string;
+
+      // استثناء الأدمن بناءً على البريد الإلكتروني
+      if (data.email === "admin@gmail.com") {
+        // إرسال كلمة المرور كما هي للأدمن لأنها مخزنة كـ JWT ثابت في الـ JSON
+        passwordToSubmit = data.password;
+      } else {
+        // منطق التشفير للمستخدمين الآخرين (دكاترة، مرضى)
+        const secret = new TextEncoder().encode("your-secret-key");
+        passwordToSubmit = await new SignJWT({ password: data.password })
+          .setProtectedHeader({ alg: "HS256" })
+          .sign(secret);
+      }
+
+      const user = await login(data.email, passwordToSubmit);
+
       toast.success(`أهلاً بك ${user.name}`);
 
+      // توجيه المستخدم حسب الرتبة
       if (user.role === "admin") navigate("/admin-dashboard");
       else if (user.role === "doctor") navigate("/doctor-dashboard");
       else navigate("/patient-dashboard");
     } catch (err: any) {
-      toast.error(err.message);
+      // تأكد أن رسالة الخطأ تظهر من الـ Hook في حال فشل المطابقة
+      toast.error(err.message || "بيانات الدخول غير صحيحة");
     } finally {
       setLoading(false);
     }

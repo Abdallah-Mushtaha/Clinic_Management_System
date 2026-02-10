@@ -1,187 +1,442 @@
 {
   "patients": [
     {
-      "id": "e743",
-      "name": "عبود",
-      "email": "eng.abood.mushtaha@gmail.com",
-      "password": "123456789",
+      "id": "2865",
+      "name": "ali",
+      "email": "ali@gmail.com",
+      "password": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMzQ1Njc4In0.iytDJ8HX2Pt0thHbe2FzMzhpWkICP0cx2HqkiEm6PoM",
       "role": "patient",
       "bloodType": "B+",
       "allergies": [
-        "البنسلين والأدوية",
-        "الغبار واللقاح",
-        "المكسرات",
-        "البيض"
+        "البيض",
+        "الفراولة",
+        "حساسية الغبار",
+        "حساسية الأطعمة"
       ],
       "chronicDiseases": [
-        "السكري"
+        "الصداع النصفي",
+        "أمراض الغدة الدرقية"
       ],
       "previousSurgeries": [
-        "استئصال الزائدة"
+        "استئصال اللوزتين",
+        "استئصال الزائدة",
+        "الولادة القيصرية",
+        "جراحة العظام"
       ],
-      "phone": "845468468",
-      "address": "عشرين شارع 42 شقة 20\n",
-      "age": "21",
-      "gender": "ذكر"
+      "age": "35",
+      "phone": "01552798088",
+      "address": "المنصورة "
+    },
+    {
+      "id": "7b21",
+      "name": "maha",
+      "email": "maha@gmail.com",
+      "password": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMzQ1Njc4In0.iytDJ8HX2Pt0thHbe2FzMzhpWkICP0cx2HqkiEm6PoM",
+      "role": "patient",
+      "bloodType": "AB+",
+      "allergies": [
+        "القمح (الجلوتين)",
+        "حساسية الأطعمة",
+        "حساسية اللاكتوز"
+      ],
+      "chronicDiseases": [
+        "الكوليسترول",
+        "السكري (نوع 1/2)"
+      ],
+      "previousSurgeries": [
+        "الولادة القيصرية",
+        "عملية الفتق",
+        "عمليات العيون (ليزر)",
+        "استئصال المرارة"
+      ],
+      "age": "29",
+      "phone": "015597897465",
+      "address": "القاهرة "
     }
   ],
   "doctors": [
     {
-      "id": "6ffd",
-      "name": "علاء الهبيل",
-      "email": "ala@gmail.com",
-      "password": "12345678",
+      "id": "1ed2",
+      "name": "samy",
+      "email": "samy@gmail.com",
+      "password": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMzQ1Njc4In0.iytDJ8HX2Pt0thHbe2FzMzhpWkICP0cx2HqkiEm6PoM",
       "role": "Doctor",
-      "specialty": "تشريح وعظام والنخاع",
+      "specialty": "جراجة وطب العيون ",
+      "phone": "01557986565413",
+      "consultationFee": "800",
+      "experience": "2",
+      "education": "شهادة دولية في جراحة العيون ",
+      "workingDays": [
+        "السبت",
+        "الجمعة",
+        "الخميس",
+        "الأربعاء",
+        "الثلاثاء"
+      ],
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "slotDuration": 30,
+      "blockedDates": []
+    },
+    {
+      "id": "0070",
+      "name": "فادي",
+      "email": "fadi@gmail.com",
+      "password": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMzQ1Njc4In0.iytDJ8HX2Pt0thHbe2FzMzhpWkICP0cx2HqkiEm6PoM",
+      "role": "Doctor",
+      "specialty": "باطنه",
+      "consultationFee": "300",
+      "experience": 2,
+      "phone": "015528963556",
+      "education": "درس في جامعة من جامعات اكسفورد",
       "workingDays": [
         "الأحد",
-        "الخميس",
         "الإثنين",
         "الثلاثاء",
+        "الخميس",
         "الأربعاء",
         "الجمعة"
       ],
-      "workingHours": {
-        "start": "06:00",
-        "end": "18:00"
-      },
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "slotDuration": 30,
+      "blockedDates": [
+        {
+          "start": "2026-03-01",
+          "end": "2026-03-09",
+          "reason": "إجازة مطولة"
+        },
+        {
+          "date": "2026-02-24",
+          "reason": "إجازة ليوم"
+        }
+      ]
+    },
+    {
+      "id": "6d20",
+      "name": "ramy",
+      "email": "ramy@gmail.com",
+      "password": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMzQ1Njc4In0.iytDJ8HX2Pt0thHbe2FzMzhpWkICP0cx2HqkiEm6PoM",
+      "role": "Doctor",
+      "specialty": "دكتور في قسم جراحة وعظام ",
+      "workingDays": [
+        "الأحد",
+        "الإثنين",
+        "الثلاثاء",
+        "الأربعاء",
+        "الخميس",
+        "السبت"
+      ],
+      "startTime": "05:00",
+      "endTime": "22:00",
       "slotDuration": 15,
       "blockedDates": [
         {
-          "start": "2026-02-02",
-          "end": "2026-02-24",
-          "reason": "إجازة مطولة"
-        },
-        {
-          "start": "2026-02-27",
-          "end": "2026-03-13",
-          "reason": "إجازة مطولة"
-        },
-        {
-          "date": "2026-02-04",
+          "date": "2026-02-26",
           "reason": "إجازة ليوم"
+        },
+        {
+          "start": "2026-03-05",
+          "end": "2026-02-23",
+          "reason": "إجازة مطولة"
         }
       ],
-      "startTime": "06:00",
-      "endTime": "18:00",
-      "phone": "0105060352135",
-      "experience": 20,
-      "education": "خبير في لعلوم البشرية والتشريح - علوم طبية\nطيب في مؤسسة الامم المتحدة ",
-      "bio": "مختص في جراحة العظام والعمود الفقري وكشف على الجمجمة ",
-      "consultationFee": "500"
+      "phone": "015446545654",
+      "consultationFee": "317",
+      "experience": "2",
+      "education": "خريج جامعة من جامعات اكسفورد  "
     }
   ],
   "appointments": [
     {
-      "id": "b7bf",
-      "doctorId": null,
-      "date": "2026-02-06",
-      "time": "11:30",
-      "notes": "Facilis sed velit ap",
-      "patientId": "e743",
+      "id": "f2bb",
+      "doctorId": "1ed2",
+      "date": "2026-02-05",
+      "time": "09:00",
+      "notes": "فحص نظر ",
+      "patientId": "2865",
       "status": "completed",
-      "consultationFee": "250",
+      "consultationFee": 200,
+      "rating": 3
+    },
+    {
+      "id": "b51b",
+      "doctorId": "1ed2",
+      "date": "2026-02-22",
+      "time": "09:30",
+      "notes": "وجع عيون ",
+      "patientId": "2865",
+      "status": "completed",
+      "consultationFee": 200,
       "rating": 5
     },
     {
-      "id": "3652",
-      "doctorId": "6ffd",
-      "date": "2026-02-04",
+      "id": "a6da",
+      "doctorId": "1ed2",
+      "date": "2026-02-05",
       "time": "16:30",
+      "notes": "فحص نظر ",
+      "patientId": "7b21",
+      "status": "cancelled",
+      "consultationFee": "500"
+    },
+    {
+      "id": "77ad",
+      "doctorId": "0070",
+      "date": "2026-02-10",
+      "time": "09:00",
+      "notes": "مغص شديد",
+      "patientId": "7b21",
+      "status": "completed",
+      "consultationFee": 200,
+      "rating": 4
+    },
+    {
+      "id": "bd9f",
+      "doctorId": "0070",
+      "date": "2026-02-16",
+      "time": "11:00",
+      "notes": "مغص شديد ادى الى تقئ مرتين في اليوم ",
+      "patientId": "2865",
+      "status": "completed",
+      "consultationFee": "300",
+      "rating": 3
+    },
+    {
+      "id": "9681",
+      "doctorId": "6d20",
+      "date": "2026-02-05",
+      "time": "16:30",
+      "notes": "الم في الذراع ",
+      "patientId": null,
+      "status": "completed",
+      "consultationFee": 200,
+      "rating": 5
+    },
+    {
+      "id": "5f9d",
+      "doctorId": "0070",
+      "date": "2026-02-07",
+      "time": "09:00",
+      "notes": "الم في المعده وغثيان شديد بعد اكل بعض الطعام في الليل ",
+      "patientId": null,
+      "status": "completed",
+      "consultationFee": "300",
+      "rating": 5
+    },
+    {
+      "id": "6254",
+      "doctorId": "1ed2",
+      "date": "2026-02-10",
+      "time": "09:30",
       "notes": "",
-      "patientId": "e743",
+      "patientId": "2865",
+      "status": "completed",
+      "consultationFee": "500"
+    },
+    {
+      "id": "5a8c",
+      "doctorId": "1ed2",
+      "date": "2026-02-13",
+      "time": "14:00",
+      "notes": "",
+      "patientId": "7b21",
+      "status": "completed",
+      "consultationFee": "500",
+      "rating": 5
+    },
+    {
+      "id": "5730",
+      "doctorId": "1ed2",
+      "date": "2026-02-26",
+      "time": "09:30",
+      "notes": "Omnis ea officia lor",
+      "patientId": "7b21",
+      "status": "completed",
+      "consultationFee": "500"
+    },
+    {
+      "id": "43bc",
+      "doctorId": "1ed2",
+      "date": "2026-03-27",
+      "time": "14:00",
+      "notes": "",
+      "patientId": "7b21",
       "status": "pending",
+      "consultationFee": "500"
+    },
+    {
+      "id": "1b28",
+      "doctorId": "1ed2",
+      "date": "2026-04-15",
+      "time": "10:30",
+      "notes": "",
+      "patientId": "7b21",
+      "status": "pending",
+      "consultationFee": "500"
+    },
+    {
+      "id": "dc5c",
+      "doctorId": "1ed2",
+      "date": "2026-05-13",
+      "time": "14:30",
+      "notes": "",
+      "patientId": "7b21",
+      "status": "confirmed",
+      "consultationFee": "500"
+    },
+    {
+      "id": "f412",
+      "doctorId": "1ed2",
+      "date": "2026-06-10",
+      "time": "10:30",
+      "notes": "",
+      "patientId": "7b21",
+      "status": "confirmed",
       "consultationFee": "500"
     }
   ],
   "payments": [
     {
       "id": "p1",
-      "patientId": "e743",
-      "amount": 500,
-      "status": "paid",
-      "date": "2026-02-01T20:00:00"
+      "patientId": null,
+      "amount": 0,
+      "status": "pending",
+      "date": "2026-02-05T00:00:00"
     }
   ],
   "doctorSalaries": [
     {
-      "id": "s2",
-      "doctorId": "6ffd",
-      "baseSalary": 5000,
-      "bonuses": 1000,
-      "deductions": 500,
+      "id": "s-default",
+      "doctorId": null,
+      "baseSalary": 0,
+      "bonuses": 0,
+      "deductions": 0,
       "month": "فبراير 2026"
     },
     {
-      "id": "temp-d1",
+      "id": "temp-1ed2",
       "baseSalary": 8000,
-      "bonuses": 100,
-      "deductions": 200,
-      "doctorId": null,
+      "bonuses": 1500,
+      "deductions": 800,
+      "doctorId": "1ed2",
       "month": "فبراير 2026"
     },
     {
-      "id": "temp-7a8f",
-      "baseSalary": 6000,
-      "bonuses": 400,
+      "id": "temp-0070",
+      "baseSalary": 3500,
+      "bonuses": 200,
       "deductions": 100,
-      "doctorId": null,
+      "doctorId": "0070",
       "month": "فبراير 2026"
     },
     {
-      "id": "temp-046f",
-      "baseSalary": 1000,
-      "bonuses": 300,
-      "deductions": 200,
+      "id": "temp-6d20",
+      "baseSalary": 9000,
+      "bonuses": 260,
+      "deductions": 500,
+      "doctorId": "6d20",
+      "month": "فبراير 2026"
+    },
+    {
+      "id": "temp-6631",
+      "baseSalary": 1200,
+      "bonuses": 600,
+      "deductions": 100,
       "doctorId": null,
       "month": "فبراير 2026"
     }
   ],
   "medical-records": [
     {
-      "id": "d607",
-      "patientId": "e743",
-      "type": "imaging",
-      "title": "تصوير صدر",
-      "content": "كشفت ان هناك كسر 3 اضلاع يمكن ان يلتئموا بسهولة. الحمد لله والامور طيبه ممتاز",
+      "id": "0e17",
+      "patientId": "2865",
+      "type": "diagnosis",
+      "title": "فحص نظر ",
+      "content": "نظر سليم الحمدلله 6/6\n",
       "medications": [],
-      "patientName": "عبود",
-      "doctorId": "6ffd",
-      "doctorName": "علاء الهبيل",
-      "date": "2026-02-02T15:29:28.195Z"
+      "patientName": "ali",
+      "doctorId": "1ed2",
+      "doctorName": "samy",
+      "date": "2026-02-05T14:14:09.896Z"
     },
     {
-      "id": "1f38",
-      "patientId": "e743",
+      "id": "f108",
+      "patientId": "7b21",
+      "type": "diagnosis",
+      "title": "متابعة المغص ",
+      "content": "بناء على الاعراض التي يواجهها المريض يبدوا  ان لديه قولون عصبي ",
+      "medications": [],
+      "patientName": "maha",
+      "doctorId": "0070",
+      "doctorName": "فادي",
+      "date": "2026-02-05T15:31:11.520Z"
+    },
+    {
+      "id": "2e0f",
+      "patientId": "7b21",
       "type": "prescription",
-      "title": "تجربة ",
-      "content": "ممتاز يعمل بشكل رائع ",
+      "title": "مغص شديد ",
+      "content": "بناء على وضح الحالة وتشخيصها يجب عليها اخذ الادوية الاتيه باستمرار  لمدة سبوعين ",
       "medications": [
         {
-          "name": "بنادول ",
-          "dosage": "2"
+          "name": "Antispasmodics",
+          "dosage": "1 حبة واحده فقط"
         },
         {
-          "name": "معجون طبي ",
-          "dosage": "مره كل ساعه "
+          "name": "مسكن الام ",
+          "dosage": "1حبة واحده فقط "
         }
       ],
-      "patientName": "عبود",
-      "doctorId": "6ffd",
-      "doctorName": "علاء الهبيل",
-      "date": "2026-02-03T10:11:48.395Z"
+      "patientName": "maha",
+      "doctorId": "1ed2",
+      "doctorName": "samy",
+      "date": "2026-02-05T15:41:22.168Z"
     },
     {
-      "id": "2050",
-      "patientId": "e743",
-      "type": "diagnosis",
-      "title": "Saepe cum vel necess",
-      "content": "Debitis qui dolore t",
+      "id": "b402",
+      "patientId": null,
+      "type": "imaging",
+      "title": "الم في الذراع ",
+      "content": "بعد الفحص تبين انهو كسر في الذراع يجب تجبيره ",
       "medications": [],
-      "patientName": "عبود",
-      "doctorId": null,
-      "doctorName": "جلال ",
-      "date": "2026-02-04T10:13:26.178Z"
+      "patientName": "عمر ",
+      "doctorId": "6d20",
+      "doctorName": "ramy",
+      "date": "2026-02-05T15:56:08.709Z"
+    },
+    {
+      "id": "8610",
+      "patientId": null,
+      "type": "imaging",
+      "title": "البيانات ال بدخلها الان خلال الفيديو تجريبيه لا تمت بالواقع بصله فقط للتاكد ان البروجيكت يعمل بشكل سليم ",
+      "content": "تيست ",
+      "medications": [],
+      "patientName": "عمر ",
+      "doctorId": "1ed2",
+      "doctorName": "samy",
+      "date": "2026-02-05T16:02:13.577Z"
+    },
+    {
+      "id": "a4e7",
+      "patientId": null,
+      "type": "prescription",
+      "title": "اعراض مشابهة للقولون ",
+      "content": "خذ الاعشاب الاتيه و الادويه الاتيه",
+      "medications": [
+        {
+          "name": "ينسون ",
+          "dosage": "1 كباية فل يوم "
+        },
+        {
+          "name": "مسكن الم ",
+          "dosage": "1 جبة فل يوم "
+        }
+      ],
+      "patientName": "عمر ",
+      "doctorId": "0070",
+      "doctorName": "فادي",
+      "date": "2026-02-05T16:05:32.352Z"
     }
   ],
   "admins": [
@@ -195,12 +450,35 @@
   ],
   "departments": [
     {
-      "id": "f5cb",
-      "name": "جراحة عيون",
-      "description": "عيون",
+      "name": "قسم العيون",
+      "description": "تشخيص وعلاج أمراض وجراحة العيون والرؤية.",
       "doctorIds": [
-        "6ffd"
-      ]
+        "1ed2",
+        "6631"
+      ],
+      "id": "d1"
+    },
+    {
+      "name": "قسم جراحة العظام",
+      "description": "علاج الكسور، الإصابات الرياضية، ومشاكل الجهاز الحركي.",
+      "doctorIds": [
+        "6d20"
+      ],
+      "id": "d2"
+    },
+    {
+      "name": "قسم الباطنة",
+      "description": "الرعاية الشاملة للأمراض الداخلية والوقاية منها.",
+      "doctorIds": [
+        "0070"
+      ],
+      "id": "d3"
+    },
+    {
+      "id": "cc1e",
+      "name": "انف واذن وحنجرة",
+      "description": "تفاصيل القسم ",
+      "doctorIds": []
     }
   ]
 }

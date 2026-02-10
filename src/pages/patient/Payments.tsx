@@ -92,9 +92,10 @@ export default function PaymentsPage() {
           />
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-right">
+        <div className="bg-white md:rounded-xl md:shadow-sm md:border md:border-gray-100 overflow-hidden">
+          {/* عرض الجدول: يظهر فقط في الشاشات المتوسطة والأكبر (Desktop) */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full text-right" dir="rtl">
               <thead className="bg-gray-50 border-b border-gray-100">
                 <tr>
                   <th className="px-6 py-4 font-bold text-gray-700">
@@ -116,7 +117,7 @@ export default function PaymentsPage() {
                     key={payment.id}
                     className="hover:bg-gray-50/50 transition"
                   >
-                    <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                    <td className="px-6 py-4 text-sm text-gray-900 font-medium whitespace-nowrap">
                       {new Date(payment.date).toLocaleDateString("ar-SA")}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">
@@ -136,13 +137,13 @@ export default function PaymentsPage() {
                     </td>
                     <td className="px-6 py-4 text-sm">
                       {payment.status === "paid" ? (
-                        <button className="text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1">
+                        <button className="text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1 transition-colors">
                           <Eye className="w-4 h-4" /> الفاتورة
                         </button>
                       ) : (
                         <button
                           onClick={() => setShowPaymentModal(true)}
-                          className="bg-orange-500 text-white px-4 py-1 rounded-lg text-xs font-bold hover:bg-orange-600 transition-transform active:scale-95"
+                          className="bg-orange-500 text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-orange-600 transition-all active:scale-95"
                         >
                           سداد الآن
                         </button>
@@ -153,8 +154,68 @@ export default function PaymentsPage() {
               </tbody>
             </table>
           </div>
-        </div>
 
+          {/* عرض الكروت: يظهر فقط في شاشات الموبايل */}
+          <div className="md:hidden space-y-4 p-4 bg-gray-50/50">
+            {combinedPayments.map((payment) => (
+              <div
+                key={payment.id}
+                className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4"
+                dir="rtl"
+              >
+                <div className="flex justify-between items-start border-b border-gray-50 pb-3">
+                  <div>
+                    <p className="text-[10px] text-gray-400 font-black mb-1 uppercase">
+                      تاريخ الموعد
+                    </p>
+                    <p className="text-sm font-bold text-gray-900">
+                      {new Date(payment.date).toLocaleDateString("ar-SA")}
+                    </p>
+                  </div>
+                  <span
+                    className={`px-3 py-1 rounded-lg text-[10px] font-black ${payment.status === "paid" ? "bg-green-50 text-green-600 border border-green-100" : "bg-orange-50 text-orange-600 border border-orange-100"}`}
+                  >
+                    {payment.status === "paid" ? "مدفوع" : "معلق"}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[10px] text-gray-400 font-black mb-1">
+                      التفاصيل
+                    </p>
+                    <p className="text-xs text-gray-600 font-medium">
+                      {payment.type}
+                    </p>
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] text-gray-400 font-black mb-1">
+                      المبلغ
+                    </p>
+                    <p className="text-sm font-black text-blue-600">
+                      {payment.amount} ج.م
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  {payment.status === "paid" ? (
+                    <button className="w-full py-3 bg-blue-50 text-blue-600 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+                      <Eye size={16} /> عرض الفاتورة التفصيلية
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setShowPaymentModal(true)}
+                      className="w-full py-3 bg-orange-500 text-white rounded-xl font-bold text-xs shadow-lg shadow-orange-200 active:scale-95 transition-all"
+                    >
+                      سداد المبلغ الآن
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         {showPaymentModal && (
           <PaymentModal onClose={() => setShowPaymentModal(false)} />
         )}

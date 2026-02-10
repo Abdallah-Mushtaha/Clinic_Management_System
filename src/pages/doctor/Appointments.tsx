@@ -76,9 +76,9 @@ export default function DoctorAppointmentsPage() {
           ))}
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
+        <div className="bg-white md:rounded-xl md:shadow-sm md:border md:border-gray-100 overflow-hidden">
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full text-right" dir="rtl">
               <thead className="bg-gray-50 border-b border-gray-100">
                 <tr>
                   {[
@@ -90,7 +90,7 @@ export default function DoctorAppointmentsPage() {
                   ].map((head) => (
                     <th
                       key={head}
-                      className="px-6 py-4 font-bold text-gray-700"
+                      className="px-6 py-4 font-bold text-gray-700 whitespace-nowrap"
                     >
                       {head}
                     </th>
@@ -110,6 +110,79 @@ export default function DoctorAppointmentsPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          <div className="md:hidden divide-y divide-gray-100" dir="rtl">
+            {filteredAppointments.map((apt: any) => (
+              <div key={apt.id} className="p-5 bg-white space-y-4">
+                <div className="flex justify-between items-start">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-black text-slate-400 uppercase">
+                      المريض
+                    </span>
+                    <span className="font-bold text-slate-900">
+                      {apt.patientName}
+                    </span>
+                    <span className="text-xs text-blue-600 font-bold tracking-wide">
+                      {apt.patientPhone}
+                    </span>
+                  </div>
+                  <div className="shrink-0">
+                    <span
+                      className={`px-3 py-1 rounded-lg text-[10px] font-black ${
+                        apt.status === "confirmed"
+                          ? "bg-green-100 text-green-700"
+                          : apt.status === "cancelled"
+                            ? "bg-red-100 text-red-700"
+                            : "bg-amber-100 text-amber-700"
+                      }`}
+                    >
+                      {apt.status === "confirmed"
+                        ? "مؤكد"
+                        : apt.status === "cancelled"
+                          ? "ملغي"
+                          : "بانتظار"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 py-4 border-y border-slate-50">
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-black text-slate-400 block uppercase">
+                      التاريخ
+                    </span>
+                    <span className="text-xs font-bold text-slate-700 bg-slate-50 px-2 py-1 rounded-md inline-block">
+                      {new Date(apt.date).toLocaleDateString("ar-EG")}
+                    </span>
+                  </div>
+                  <div className="text-left space-y-1">
+                    <span className="text-[10px] font-black text-slate-400 block uppercase">
+                      الوقت
+                    </span>
+                    <span className="text-xs font-bold text-slate-700 bg-slate-50 px-2 py-1 rounded-md inline-block">
+                      {apt.time}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 pt-1">
+                  <button
+                    onClick={() => setSelectedNote(apt)}
+                    className="flex-1 py-3 bg-white text-slate-600 rounded-xl text-xs font-black border-2 border-slate-100 active:scale-95 transition-all"
+                  >
+                    التفاصيل
+                  </button>
+                  <button
+                    onClick={() =>
+                      mutation.mutate({ id: apt.id, status: "confirmed" })
+                    }
+                    className="flex-1 py-3 bg-blue-600 text-white rounded-xl text-xs font-black shadow-lg shadow-blue-100 active:scale-95 transition-all"
+                  >
+                    تأكيد الموعد
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

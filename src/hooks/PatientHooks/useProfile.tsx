@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import api from "../../api/axiosInstance";
+import { SignJWT } from "jose";
 
 export const useProfile = () => {
   const queryClient = useQueryClient();
@@ -50,11 +51,17 @@ export const useProfile = () => {
     if (formData) updatePatientMutation.mutate(formData);
   };
 
-  const handleUpdatePassword = (e: React.FormEvent) => {
+  const handleUpdatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     if (passwords.new !== passwords.confirm)
       return alert("كلمات المرور غير متطابقة");
-    updatePatientMutation.mutate({ password: passwords.new });
+
+    const secret = new TextEncoder().encode("your-secret-key");
+    const encryptedNewPassword = await new SignJWT({ password: passwords.new })
+      .setProtectedHeader({ alg: "HS256" })
+      .sign(secret);
+
+    updatePatientMutation.mutate({ password: encryptedNewPassword });
     setPasswords({ current: "", new: "", confirm: "" });
   };
 

@@ -68,23 +68,25 @@ export default function AdminDepartmentsPage() {
     <DashboardLayout>
       <Toaster position="top-center" />
       <div className="max-w-[1240px] mx-auto space-y-10 p-6" dir="rtl">
-        <header className="flex justify-between items-center bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 bg-blue-600 text-white rounded-[1.5rem] flex items-center justify-center">
-              <LayoutGrid size={32} />
+        <header className="flex flex-col md:flex-row justify-between items-center bg-white p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] shadow-sm border border-slate-100 gap-6">
+          <div className="flex items-center gap-3 md:gap-5 w-full md:w-auto">
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-600 text-white rounded-xl md:rounded-[1.5rem] flex items-center justify-center shrink-0">
+              <LayoutGrid size={24} className="md:w-8 md:h-8" />
             </div>
-            <h1 className="text-3xl font-black text-slate-900">
+            <h1 className="text-xl md:text-3xl font-black text-slate-900 truncate">
               إدارة الأقسام
             </h1>
           </div>
+
           <button
             onClick={() => {
               setShowForm(true);
               setEditingId(null);
             }}
-            className="bg-blue-600 text-white rounded-2xl h-16 px-10 font-black shadow-xl flex items-center"
+            className="w-full md:w-auto bg-blue-600 text-white rounded-xl md:rounded-2xl h-12 md:h-16 px-6 md:px-10 font-black shadow-xl flex items-center justify-center transition-transform active:scale-95 cursor-pointer"
           >
-            <Plus className="ml-2" /> إضافة قسم
+            <Plus size={20} className="ml-2" />
+            <span className="text-sm md:text-base">إضافة قسم</span>
           </button>
         </header>
 

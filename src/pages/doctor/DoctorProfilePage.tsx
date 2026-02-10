@@ -17,13 +17,34 @@ import {
   InfoField,
 } from "../../components/doctor/DoctorProfile/ProfileComponents";
 import toast from "react-hot-toast";
+import { SignJWT } from "jose";
 
 export default function DoctorProfilePage() {
   const { user } = useAuth();
   const [editMode, setEditMode] = useState(false);
   const [passwordMode, setPasswordMode] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
   const { formData, isLoading, updateMutation, handleChange } =
     useDoctorProfile(user?.id);
+
+  const handlePasswordUpdate = async () => {
+    if (!newPassword || newPassword.length < 8) {
+      return toast.error("كلمة المرور يجب أن لا تقل عن 8 أحرف");
+    }
+
+    try {
+      const secret = new TextEncoder().encode("your-secret-key");
+      const encryptedPassword = await new SignJWT({ password: newPassword })
+        .setProtectedHeader({ alg: "HS256" })
+        .sign(secret);
+
+      updateMutation.mutate({ password: encryptedPassword });
+      setPasswordMode(false);
+      setNewPassword("");
+    } catch (err) {
+      toast.error("حدث خطأ أثناء التشفير");
+    }
+  };
 
   if (isLoading)
     return (
@@ -156,17 +177,19 @@ export default function DoctorProfilePage() {
                 <div className="mt-6 space-y-4 animate-in slide-in-from-top-4 duration-300">
                   <input
                     type="password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
                     placeholder="الكلمة الجديدة"
                     className="w-full p-4 bg-white/10 border border-white/20 rounded-xl outline-none"
                   />
                   <button
-                    onClick={() => {
-                      toast.success("تم التحديث");
-                      setPasswordMode(false);
-                    }}
+                    onClick={handlePasswordUpdate}
+                    disabled={updateMutation.isPending}
                     className="w-full bg-white text-indigo-600 rounded-xl font-black h-12"
                   >
-                    تحديث الآن
+                    {updateMutation.isPending
+                      ? "جاري التحديث..."
+                      : "تحديث الآن"}
                   </button>
                 </div>
               )}

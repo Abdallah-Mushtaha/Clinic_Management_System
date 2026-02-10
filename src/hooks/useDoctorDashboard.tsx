@@ -26,14 +26,24 @@ export function useDoctorDashboard() {
     queryFn: () => api.get("/patients").then((res) => res.data),
   });
 
-  const { data: salary } = useQuery({
-    queryKey: ["doctorSalary", doctorId],
+  const { data: salaryData = [] } = useQuery({
+    queryKey: ["doctorSalaries", doctorId],
     queryFn: () =>
       api
-        .get(`/doctorSalaries?doctorId=${doctorId}`)
-        .then((res) => res.data[0]),
+        .get(`/doctorSalaries`, { params: { doctorId } })
+        .then((res) => res.data),
     enabled: !!doctorId,
   });
+
+  const salary = useMemo(() => {
+    if (!salaryData.length) return null;
+    const latest = salaryData[salaryData.length - 1];
+    return {
+      ...latest,
+      total: latest.baseSalary + latest.bonuses - latest.deductions,
+      displayMonth: latest.month || "فبراير 2026",
+    };
+  }, [salaryData]);
 
   const stats = useMemo(() => {
     const today = new Date().toDateString();

@@ -57,7 +57,7 @@ export default function AppointmentDetailsModal({
           </div>
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-slate-900 font-black text-sm">
-              <FileText className="w-4 h-4 text-blue-500" /> ملاحظات الموعد
+              <FileText className="w-4 h-4 text-blue-500" /> ملاحظات
             </div>
             <div className="p-5 bg-blue-50/50 border border-blue-100 rounded-[1.5rem] text-slate-600 leading-relaxed font-medium italic">
               "{appointment.notes || "لا توجد ملاحظات مسجلة لهذا الموعد"}"

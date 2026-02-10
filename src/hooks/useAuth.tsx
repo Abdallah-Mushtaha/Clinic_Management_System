@@ -4,6 +4,7 @@ import React, {
   useState,
   useEffect,
   useMemo,
+  useCallback,
 } from "react";
 import type { ReactNode } from "react";
 import api from "../api/axiosInstance";
@@ -41,46 +42,47 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(false);
   }, []);
 
-  // تسجيل الدخول
-  const login = async (email: string, password: string): Promise<User> => {
-    try {
-      const [patientsRes, doctorsRes, adminsRes] = await Promise.all([
-        api.get("/patients"),
-        api.get("/doctors"),
-        api.get("/admins"),
-      ]);
+  const login = useCallback(
+    async (email: string, password: string): Promise<User> => {
+      try {
+        const [patientsRes, doctorsRes, adminsRes] = await Promise.all([
+          api.get("/patients"),
+          api.get("/doctors"),
+          api.get("/admins"),
+        ]);
 
-      const allUsers: User[] = [
-        ...patientsRes.data,
-        ...doctorsRes.data,
-        ...adminsRes.data,
-      ];
+        const allUsers: User[] = [
+          ...patientsRes.data,
+          ...doctorsRes.data,
+          ...adminsRes.data,
+        ];
 
-      const foundUser = allUsers.find(
-        (u) => u.email === email && u.password === password,
-      );
+        const foundUser = allUsers.find(
+          (u) => u.email === email && u.password === password,
+        );
 
-      if (!foundUser)
-        throw new Error("البريد الإلكتروني أو كلمة المرور غير صحيحة");
+        if (!foundUser)
+          throw new Error("البريد الإلكتروني أو كلمة المرور غير صحيحة");
 
-      //check thats all of role small later
-      foundUser.role = foundUser.role.toLowerCase();
+        const sanitizedUser = {
+          ...foundUser,
+          role: foundUser.role.toLowerCase(),
+        };
 
-      setUser(foundUser);
-      localStorage.setItem("clinic_user", JSON.stringify(foundUser));
+        setUser(sanitizedUser);
+        localStorage.setItem("clinic_user", JSON.stringify(sanitizedUser));
+        return sanitizedUser;
+      } catch (err: any) {
+        throw new Error(err.message || "حدث خطأ أثناء تسجيل الدخول");
+      }
+    },
+    [],
+  );
 
-      return foundUser;
-    } catch (err: any) {
-      throw new Error(err.message || "حدث خطأ أثناء تسجيل الدخول");
-    }
-  };
-
-  //  logout
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
     localStorage.removeItem("clinic_user");
-    window.location.href = "/login";
-  };
+  }, []);
 
   const contextValue = useMemo(
     () => ({
@@ -89,7 +91,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       logout,
       loading,
     }),
-    [user, loading],
+    [user, loading, login, logout],
   );
 
   return (

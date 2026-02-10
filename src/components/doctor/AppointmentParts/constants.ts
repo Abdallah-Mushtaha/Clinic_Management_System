@@ -2,7 +2,7 @@ export const STATUS_CONFIG: Record<string, { color: string; text: string; info: 
   confirmed: { color: "bg-green-100 text-green-700", text: "مؤكد", info: "الموعد مؤكد بانتظار الحضور" },
   pending: { color: "bg-orange-100 text-orange-700", text: "قيد الانتظار", info: "بانتظار تأكيد الطبيب أو السكرتارية" },
   completed: { color: "bg-blue-100 text-blue-700", text: "مكتمل", info: "تمت الجلسة بنجاح وتم تسجيل البيانات" },
-  cancelled: { color: "bg-red-100 text-red-700", text: "ملغى", info: "تم إلغاء الجلسة لأسباب خاصة بالطبيب، نعتذر" },
+  cancelled: { color: "bg-red-100 text-red-700", text: "ملغى", info: "تم الغاء الموعد من قبل المريض عبر الهاتف" },
 };
 
 export const FILTER_OPTIONS = [
